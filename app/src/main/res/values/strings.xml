@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ToDo App</string>
+    <string name="add">Add</string>
+    <string name="add_task">Add New Task</string>
+    <string name="editLabel">Edit:</string>
+    <string name="editTask">Enter Task</string>
+</resources>
