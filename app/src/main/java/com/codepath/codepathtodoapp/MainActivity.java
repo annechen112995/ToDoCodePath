@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent Edit = new Intent(MainActivity.this, EditTasks.class);
                 Edit.putExtra("position", position);
                 startActivityForResult(Edit, REQUEST_CODE);
+                aToDoAdapter.notifyDataSetChanged();
+                writeItems();
             }
         });
     }
@@ -55,7 +57,11 @@ public class MainActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
             String etEditTask = data.getExtras().getString("etEditTask");
+            int position = data.getExtras().getInt("position");
+            todoTasks.set(position, etEditTask);
             Toast.makeText(MainActivity.this, etEditTask, Toast.LENGTH_SHORT).show();
+            aToDoAdapter.notifyDataSetChanged();
+            writeItems();
         }
     }
 
